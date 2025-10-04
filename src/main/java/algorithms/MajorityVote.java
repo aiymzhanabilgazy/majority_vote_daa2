@@ -1,9 +1,22 @@
 package algorithms;
  import metrics.MajorityMetrics;
 public class MajorityVote {
+
+    public int majorityElement(int[] nums) {
+        return majorityElement(nums, new MajorityMetrics());
+    }
+
     public int majorityElement(int[] nums, MajorityMetrics metrics) {
         if (metrics == null){
             metrics = new MajorityMetrics();
+        }
+
+        if (nums == null || nums.length == 0){
+            return -1;
+        }
+        if (nums.length == 1){
+            metrics.incrementArrayAccesses();
+            return nums[0];
         }
 
         int candidate = 0;
@@ -17,11 +30,7 @@ public class MajorityVote {
             }
 
             metrics.incrementComparisons(); //compare element==candidate
-            if(element == candidate){
-                count++;
-            }else{
-                count--;
-            }
+            count +=(element == candidate ? 1 : -1);
         }
 
         //checking if majority candidate occurs more than n/2 times
@@ -34,9 +43,7 @@ public class MajorityVote {
             }
         }
         metrics.incrementComparisons();
-        if (countCheck > nums.length/ 2) {
-            return candidate;
-        }
-        return -1;
+        return (countCheck > nums.length/ 2) ? candidate : -1 ;
+
     }
 }
