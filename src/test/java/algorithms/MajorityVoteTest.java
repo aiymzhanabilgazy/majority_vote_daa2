@@ -31,6 +31,4 @@ public class MajorityVoteTest {
         int result = majorityVote.majorityElement(new int[]{8,7,6,5,4,3,2,1});
         assertEquals(-1,result);
     }
-
-
 }
