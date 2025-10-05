@@ -1,8 +1,11 @@
 package algorithms;
  import metrics.MajorityMetrics;
+
 public class MajorityVote {
     public int majorityElement(int[] nums) {
-        return majorityElement(nums,new metrics.MajorityMetrics());
+
+        return majorityElement(nums, new metrics.MajorityMetrics());
+
     }
     public int majorityElement(int[] nums, MajorityMetrics metrics) {
 
