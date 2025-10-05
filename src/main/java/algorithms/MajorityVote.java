@@ -14,16 +14,6 @@ public class MajorityVote {
                 count--;
             }
         }
-        //checking if majority candidate occurs more than n/2 times  by formula
-        int countCheck = 0;
-        for (int element : nums) {
-            if (element == candidate) {
-                countCheck++;
-            }
-        }
-        if (countCheck > nums.length/ 2) {
-            return candidate;
-        }
-        return -1;
+        return candidate;
     }
 }
