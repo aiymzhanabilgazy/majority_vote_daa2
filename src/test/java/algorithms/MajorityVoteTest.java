@@ -30,8 +30,5 @@ public class MajorityVoteTest {
     void testUnsortedArray(){
         int result = majorityVote.majorityElement(new int[]{8,7,6,5,4,3,2,1});
         assertTrue(java.util.Arrays.stream(new int[]{8,7,6,5,4,3,2,1}).anyMatch(x -> x == result));
-
     }
-
-
 }
