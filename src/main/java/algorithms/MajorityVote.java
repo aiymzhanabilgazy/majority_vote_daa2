@@ -4,12 +4,9 @@ package algorithms;
 public class MajorityVote {
 
     public int majorityElement(int[] nums) {
-
-
         return majorityElement(nums, new metrics.MajorityMetrics());
-
     }
-
+  
 
     public int majorityElement(int[] nums, MajorityMetrics metrics) {
 
@@ -17,6 +14,9 @@ public class MajorityVote {
             metrics = new MajorityMetrics();
         }
 
+        if (nums == null || nums.length == 0){
+            return 0;
+        }
 
         int candidate = 0;
         int count = 0;
@@ -30,11 +30,7 @@ public class MajorityVote {
             }
 
             metrics.incrementComparisons(); //compare element==candidate
-            if(element == candidate){
-                count++;
-            }else{
-                count--;
-            }
+            count +=(element == candidate ? 1 : -1);
         }
         return candidate;
     }
